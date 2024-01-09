@@ -1,0 +1,49 @@
+<div class="Add-product">
+  <h1>Add Product</h1>
+  <form [formGroup]="addProductForm" class="form-common">
+    <a class="msg">{{StatusMsg}}</a>
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productName"
+      placeholder="Enter Product Name"
+      name="productName"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productPrice"
+      placeholder="Enter Product Price"
+      name="productPrice"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productColor"
+      placeholder="Enter Product Color"
+      name="productColor"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productImg"
+      placeholder="Enter Product Image"
+      name="productImg"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productDesc"
+      placeholder="Enter Product Description"
+      name="productDesc"
+    />
+    <input
+      type="text"
+      class="form-input"
+      formControlName="productCategory"
+      placeholder="Enter Product Category"
+      name="productCategory"
+    />
+    <button class="form-button" (click)="AddProduct()">Add Product</button>
+  </form>
+</div>

@@ -1,0 +1,61 @@
+<div class="row product-details">
+  <div class="col-sm-6">
+    <img src="{{ productData?.productImg }}" />
+  </div>
+  <div class="col-sm-6">
+    <div class="details">
+      <h2>{{ productData?.productName }}</h2>
+      <p class="price">Price: {{ productData?.productPrice | currency }}</p>
+      <p class="category">Category: {{ productData?.productCategory }}</p>
+      <p class="description">{{ productData?.productDesc }}</p>
+    </div>
+    <div class="buttonCont">
+      <button
+        (click)="addToCart()"
+        *ngIf="!removeCart"
+        style="
+          display: flex;
+          justify-content: space-between;
+          margin-right: 10px;
+        "
+      >
+        <div style="margin-right: 5px">
+          <fa-icon [icon]="CartIcon"></fa-icon>
+        </div>
+        <div>Add To Cart</div>
+      </button>
+      <button
+        (click)="removeToCart(productData?.id)"
+        *ngIf="removeCart"
+        style="
+          display: flex;
+          justify-content: space-between;
+          margin-right: 10px;
+        "
+      >
+        <div style="margin-right: 5px">
+          <fa-icon [icon]="CartIcon"></fa-icon>
+        </div>
+        <div>Remove From Cart</div>
+      </button>
+      <button
+        (click)="BuyNow()"
+        style="
+          display: flex;
+          justify-content: space-between;
+          margin-right: 10px;
+        "
+      >
+        <div style="margin-right: 5px">
+          <fa-icon [icon]="faBagShopping"></fa-icon>
+        </div>
+        <div>Buy Now</div>
+      </button>
+    </div>
+    <div class="counter-container">
+      <button class="counter-btn" (click)="handleItemQty('remove')">-</button>
+      <input class="counter-input" value="{{ productQuantity }}" />
+      <button class="counter-btn" (click)="handleItemQty('add')">+</button>
+    </div>
+  </div>
+</div>

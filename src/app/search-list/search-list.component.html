@@ -1,0 +1,15 @@
+<div class="row search-item" *ngFor="let item of searchData">
+  <div class="col-sm-3" (click)="getProductDetails(item.id)">
+    <img src="{{ item.productImg }}" />
+  </div>
+  <div class="col-sm-8 details">
+    <h5 (click)="getProductDetails(item.id)">{{ item.productName }}</h5>
+    <p>
+      <b> Price :{{ item.productPrice | currency }}</b>
+    </p>
+    <p>
+      <span>Color:{{ item.productColor }}</span>
+      <span>Category:{{ item.productCategory }}</span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="seller-auth">
+  <div *ngIf="!showLogin" class="sign-up">
+    <h1>User Sign-up</h1>
+    <form [formGroup]="userAuth" class="form-common">
+      <input
+        type="text"
+        formControlName="name"
+        class="form-input"
+        placeholder="Enter Name"
+        name="name"
+      />
+      <input
+        type="text"
+        class="form-input"
+        formControlName="email"
+        placeholder="Enter Email"
+        name="email"
+      />
+      <input
+        type="text"
+        class="form-input"
+        formControlName="password"
+        placeholder="Enter Password"
+        name="Password"
+      />
+      <button class="form-button" (click)="signUpUser()">Sign-up</button>
+      <a (click)="showLoginPage()" class="text"
+        >Already Have a Account ? Click Here to Login</a
+      >
+    </form>
+  </div>
+
+  <div *ngIf="showLogin" class="sign-up">
+    <h1>User Login</h1>
+    <p style="color: red; font-weight: 500">{{ AuthError }}</p>
+    <form [formGroup]="userFormLogin" class="form-common">
+      <input
+        type="text"
+        class="form-input"
+        formControlName="email"
+        placeholder="Enter Email"
+        name="email"
+      />
+      <p
+        class="text-danger"
+        *ngIf="
+          loginValidator('email')?.touched && loginValidator('email')?.invalid
+        "
+      >
+        Email is Invalid
+      </p>
+      <input
+        type="text"
+        class="form-input"
+        formControlName="password"
+        placeholder="Enter Password"
+        name="Password"
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          loginValidator('password')?.touched &&
+          loginValidator('password')?.invalid
+        "
+      >
+        Password is Invalid
+      </span>
+      <button class="form-button" (click)="Login()">Login</button>
+      <a (click)="showSignUpPage()" class="text"
+        >Dont't Have a Account ? Click Here to SignUp</a
+      >
+    </form>
+  </div>
+</div>

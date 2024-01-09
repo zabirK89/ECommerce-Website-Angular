@@ -1,0 +1,32 @@
+<div class="productContainer">
+  <div class="card" *ngFor="let item of Products">
+    <img src="{{ item.productImg }}" alt="Avatr" style="width: 100%" />
+    <div class="container">
+      <h4>
+        <b>{{ item.productName }}</b>
+      </h4>
+      <p>{{ item.productDesc }}</p>
+      <p>Price: {{ item.productPrice | currency }}</p>
+      <div class="buttonCont">
+        <button
+          (click)="deleteProduct(item.id)"
+          style="display: flex; justify-content: space-between"
+        >
+          <div style="margin-right: 5px">
+            <fa-icon [icon]="deleteIcon"></fa-icon>
+          </div>
+          <div>Delete Item</div>
+        </button>
+        <button
+          (click)="updateProduct(item.id)"
+          style="display: flex; justify-content: space-between"
+        >
+          <div style="margin-right: 5px">
+            <fa-icon [icon]="deleteIcon"></fa-icon>
+          </div>
+          <div>Update Item</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
